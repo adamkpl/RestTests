@@ -17,7 +17,7 @@
         <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
         <org.apache.httpcomponents>4.4.10</org.apache.httpcomponents>
         <junit.version>4.13</junit.version>
-        <io.rest-assured.version>4.2.0</io.rest-assured.version>
+        <io.rest-assured.version>4.3.2</io.rest-assured.version>
     </properties>
 
     <build>
