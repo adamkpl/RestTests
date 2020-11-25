@@ -14,6 +14,7 @@
         <maven.compiler.version>3.8.0</maven.compiler.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
         <org.apache.httpcomponents>4.4.10</org.apache.httpcomponents>
         <junit.version>4.13</junit.version>
         <io.rest-assured.version>4.2.0</io.rest-assured.version>
@@ -29,6 +30,10 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin}</version>
             </plugin>
         </plugins>
     </build>
