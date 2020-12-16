@@ -1,7 +1,7 @@
 package com.typicode.jsonplaceholder.comments;
 
 import com.typicode.jsonplaceholder.utils.Endpoints;
-import com.typicode.jsonplaceholder.utils.StatusCodes;
+import com.utils.StatusCode;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.BeforeClass;
@@ -9,13 +9,6 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
-
-/**
- * Get Comments Test
- * @version     alpha 0.2
- * @since       2020-02-07
- * @author      Adam K.
- */
 
 public class GetCommentTest {
 
@@ -26,9 +19,9 @@ public class GetCommentTest {
         response =
                 given()
                     .expect()
-                    .statusCode(StatusCodes.SC_OK)
+                    .statusCode(StatusCode.SC_OK)
                 .when()
-                    .get(Endpoints.COMMENTS_ENDPOINT);
+                    .get(Endpoints.COMMENTS);
     }
 
     @Test
