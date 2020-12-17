@@ -46,12 +46,12 @@ public class PutBookingTest extends BaseTestCase {
                     .body(Booking.BOOKING_PREFIX_KEY_NAME + Booking.ADDITIONAL_NEEDS_KEY_NAME, is(TestData.ADDITIONAL_NEEDS));
 
         // Prepare new payload data
-        newPayload = new Booking.BookingBuilder()
+        newPayload = new Booking.Builder()
                 .withFirstname(firstnameUpdated)
                 .withLastname(lastnameUpdated)
                 .withTotalprice(totalPriceUpdated)
                 .withDepositpaid(depositPaidUpdated)
-                .withBookingdates(new Bookingdates.BookingdatesBuilder()
+                .withBookingdates(new Bookingdates.Builder()
                         .withCheckin(dateCheckInUpdated)
                         .withCheckout(dateCheckOutUpdated).build())
                 .withAdditionalneeds(additionalNeedsUpdated)

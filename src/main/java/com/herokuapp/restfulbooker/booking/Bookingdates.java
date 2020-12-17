@@ -1,5 +1,7 @@
 package com.herokuapp.restfulbooker.booking;
 
+import java.util.Objects;
+
 /**
  * Booking
  * <p>
@@ -37,27 +39,27 @@ public class Bookingdates {
     private String checkin;
     private String checkout;
 
-    public Bookingdates() {}
-
-    public Bookingdates(String checkin, String checkout) {
-        this.checkin = checkin;
-        this.checkout = checkout;
-    }
+    private Bookingdates() {}
 
     public String getCheckin() {
         return checkin;
-    }
-
-    public void setCheckin(String checkin) {
-        this.checkin = checkin;
     }
 
     public String getCheckout() {
         return checkout;
     }
 
-    public void setCheckout(String checkout) {
-        this.checkout = checkout;
+    @Override
+    public boolean equals(Object otherObject) {
+        if (this == otherObject) return true;
+        if (otherObject == null || getClass() != otherObject.getClass()) return false;
+        Bookingdates that = (Bookingdates) otherObject;
+        return Objects.equals(checkin, that.checkin) && Objects.equals(checkout, that.checkout);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(checkin, checkout);
     }
 
     @Override
@@ -68,31 +70,27 @@ public class Bookingdates {
                 '}';
     }
 
-    public static final class BookingdatesBuilder {
+    public static final class Builder {
 
         private String checkin;
         private String checkout;
 
-        public BookingdatesBuilder() {}
+        public Builder() {}
 
-        public static BookingdatesBuilder aBookingdates() {
-            return new BookingdatesBuilder();
-        }
-
-        public BookingdatesBuilder withCheckin(String checkin) {
+        public Builder withCheckin(String checkin) {
             this.checkin = checkin;
             return this;
         }
 
-        public BookingdatesBuilder withCheckout(String checkout) {
+        public Builder withCheckout(String checkout) {
             this.checkout = checkout;
             return this;
         }
 
         public Bookingdates build() {
             Bookingdates bookingdates = new Bookingdates();
-            bookingdates.setCheckin(checkin);
-            bookingdates.setCheckout(checkout);
+            bookingdates.checkin = this.checkin;
+            bookingdates.checkout = this.checkout;
             return bookingdates;
         }
     }

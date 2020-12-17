@@ -11,12 +11,12 @@ import com.herokuapp.restfulbooker.utils.Authentication;
  * import com.herokuapp.restfulbooker.booking.Booking;
  * import com.herokuapp.restfulbooker.booking.Bookingdates;
  *
- *      Booking booking = new Booking.BookingBuilder()
+ *      Booking booking = new Booking.Builder()
  *          .withFirstname(TestData.FIRST_NAME)
  *          .withLastname(TestData.LAST_NAME)
  *          .withTotalprice(TestData.TOTAL_PRICE)
  *          .withDepositpaid(TestData.DEPOSIT_PAID)
- *          .withBookingdates(new Bookingdates.BookingdatesBuilder()
+ *          .withBookingdates(new Bookingdates.Builder()
  *                  .withCheckin(TestData.BOOKING_DATES_CHECK_IN)
  *                  .withCheckout(TestData.BOOKING_DATES_CHECK_OUT).build())
  *          .withAdditionalneeds(TestData.ADDITIONAL_NEEDS)
@@ -38,12 +38,12 @@ public class TestData {
     public static final String[] PASSWORDS = {"", "invalid", Authentication.DEMO_PASSWORD};
 
     public static Booking generateDefaultBookingPayload() {
-        return new Booking.BookingBuilder()
+        return new Booking.Builder()
                 .withFirstname(FIRST_NAME)
                 .withLastname(LAST_NAME)
                 .withTotalprice(TOTAL_PRICE)
                 .withDepositpaid(DEPOSIT_PAID)
-                .withBookingdates(new Bookingdates.BookingdatesBuilder()
+                .withBookingdates(new Bookingdates.Builder()
                         .withCheckin(BOOKING_DATES_CHECK_IN)
                         .withCheckout(BOOKING_DATES_CHECK_OUT).build())
                 .withAdditionalneeds(ADDITIONAL_NEEDS)

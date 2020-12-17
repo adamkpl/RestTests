@@ -2,6 +2,8 @@ package com.herokuapp.restfulbooker.booking;
 
 import com.herokuapp.restfulbooker.domainObjects.AbstractEntry;
 
+import java.util.Objects;
+
 /**
  * Booking
  * <p>
@@ -56,61 +58,46 @@ public class Booking extends AbstractEntry {
 
     private Booking() {}
 
-    private Booking(String firstname, String lastname, Integer totalprice, Boolean depositpaid, Bookingdates bookingdates, String additionalneeds) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.totalprice = totalprice;
-        this.depositpaid = depositpaid;
-        this.bookingdates = bookingdates;
-        this.additionalneeds = additionalneeds;
-    }
-
     public String getFirstname() {
         return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
     }
 
     public String getLastname() {
         return lastname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
     public Integer getTotalprice() {
         return totalprice;
-    }
-
-    public void setTotalprice(Integer totalprice) {
-        this.totalprice = totalprice;
     }
 
     public Boolean getDepositpaid() {
         return depositpaid;
     }
 
-    public void setDepositpaid(Boolean depositpaid) {
-        this.depositpaid = depositpaid;
-    }
-
     public Bookingdates getBookingdates() {
         return bookingdates;
-    }
-
-    public void setBookingdates(Bookingdates bookingdates) {
-        this.bookingdates = bookingdates;
     }
 
     public String getAdditionalneeds() {
         return additionalneeds;
     }
 
-    public void setAdditionalneeds(String additionalneeds) {
-        this.additionalneeds = additionalneeds;
+    @Override
+    public boolean equals(Object otherObject) {
+        if (this == otherObject) return true;
+        if (otherObject == null || getClass() != otherObject.getClass()) return false;
+        Booking booking = (Booking) otherObject;
+        return Objects.equals(firstname, booking.firstname)
+                && Objects.equals(lastname, booking.lastname)
+                && Objects.equals(totalprice, booking.totalprice)
+                && Objects.equals(depositpaid, booking.depositpaid)
+                && Objects.equals(bookingdates, booking.bookingdates)
+                && Objects.equals(additionalneeds, booking.additionalneeds);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstname, lastname, totalprice, depositpaid, bookingdates, additionalneeds);
     }
 
     @Override
@@ -125,7 +112,7 @@ public class Booking extends AbstractEntry {
                 '}';
     }
 
-    public static final class BookingBuilder {
+    public static final class Builder {
 
         private String firstname;
         private String lastname;
@@ -134,50 +121,46 @@ public class Booking extends AbstractEntry {
         private Bookingdates bookingdates;
         private String additionalneeds;
 
-        public BookingBuilder() {}
+        public Builder() {}
 
-        public static BookingBuilder aBooking() {
-            return new BookingBuilder();
-        }
-
-        public BookingBuilder withFirstname(String firstname) {
+        public Builder withFirstname(String firstname) {
             this.firstname = firstname;
             return this;
         }
 
-        public BookingBuilder withLastname(String lastname) {
+        public Builder withLastname(String lastname) {
             this.lastname = lastname;
             return this;
         }
 
-        public BookingBuilder withTotalprice(Integer totalprice) {
+        public Builder withTotalprice(Integer totalprice) {
             this.totalprice = totalprice;
             return this;
         }
 
-        public BookingBuilder withDepositpaid(Boolean depositpaid) {
+        public Builder withDepositpaid(Boolean depositpaid) {
             this.depositpaid = depositpaid;
             return this;
         }
 
-        public BookingBuilder withBookingdates(Bookingdates bookingdates) {
+        public Builder withBookingdates(Bookingdates bookingdates) {
             this.bookingdates = bookingdates;
             return this;
         }
 
-        public BookingBuilder withAdditionalneeds(String additionalneeds) {
+        public Builder withAdditionalneeds(String additionalneeds) {
             this.additionalneeds = additionalneeds;
             return this;
         }
 
         public Booking build() {
             Booking booking = new Booking();
-            booking.setFirstname(firstname);
-            booking.setLastname(lastname);
-            booking.setTotalprice(totalprice);
-            booking.setDepositpaid(depositpaid);
-            booking.setBookingdates(bookingdates);
-            booking.setAdditionalneeds(additionalneeds);
+            booking.firstname = this.firstname;
+            booking.lastname = this.lastname;
+            booking.totalprice = this.totalprice;
+            booking.depositpaid = this.depositpaid;
+            booking.bookingdates = this.bookingdates;
+            booking.additionalneeds = this.additionalneeds;
             return booking;
         }
     }

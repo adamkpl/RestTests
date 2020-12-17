@@ -1,5 +1,7 @@
 package com.herokuapp.restfulbooker.booking;
 
+import java.util.Objects;
+
 /**
  * Booking
  * <p>
@@ -33,30 +35,31 @@ package com.herokuapp.restfulbooker.booking;
  */
 
 public class Bookingid {
+
     private Integer bookingid;
     private Booking booking;
 
-    public Bookingid() {}
-
-    public Bookingid(Integer bookingid, Booking booking) {
-        this.bookingid = bookingid;
-        this.booking = booking;
-    }
+    private Bookingid() {}
 
     public Integer getBookingid() {
         return bookingid;
-    }
-
-    public void setBookingid(Integer bookingid) {
-        this.bookingid = bookingid;
     }
 
     public Booking getBooking() {
         return booking;
     }
 
-    public void setBooking(Booking booking) {
-        this.booking = booking;
+    @Override
+    public boolean equals(Object otherObject) {
+        if (this == otherObject) return true;
+        if (otherObject == null || getClass() != otherObject.getClass()) return false;
+        Bookingid that = (Bookingid) otherObject;
+        return Objects.equals(bookingid, that.bookingid) && Objects.equals(booking, that.booking);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookingid, booking);
     }
 
     @Override
@@ -67,32 +70,21 @@ public class Bookingid {
                 '}';
     }
 
+    public static final class Builder {
 
-    public static final class BookingidBuilder {
         private Integer bookingid;
         private Booking booking;
 
-        public BookingidBuilder() {}
+        public Builder() {}
 
-        public static BookingidBuilder aBookingid() {
-            return new BookingidBuilder();
-        }
-
-        public BookingidBuilder withBookingid(Integer bookingid) {
+        public Builder withBookingid(Integer bookingid) {
             this.bookingid = bookingid;
             return this;
         }
 
-        public BookingidBuilder withBooking(Booking booking) {
+        public Builder withBooking(Booking booking) {
             this.booking = booking;
             return this;
-        }
-
-        public Bookingid build() {
-            Bookingid bookingidobj = new Bookingid();
-            bookingidobj.setBookingid(bookingid);
-            bookingidobj.setBooking(booking);
-            return bookingidobj;
         }
 
     }
