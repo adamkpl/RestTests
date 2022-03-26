@@ -15,12 +15,12 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
-        <io.rest-assured.version>4.4.0</io.rest-assured.version>
+        <io.rest-assured.version>4.5.1</io.rest-assured.version>
         <junit.version>4.13.2</junit.version>
-        <org.apache.httpcomponents>4.4.14</org.apache.httpcomponents>
-        <org.assertj.version>3.20.2</org.assertj.version>
-        <org.json.version>20210307</org.json.version>
-        <com.fasterxml.jackson>2.12.4</com.fasterxml.jackson>
+        <org.apache.httpcomponents>4.4.15</org.apache.httpcomponents>
+        <org.assertj.version>3.22.0</org.assertj.version>
+        <org.json.version>20211205</org.json.version>
+        <com.fasterxml.jackson>2.13.2.1</com.fasterxml.jackson>
     </properties>
 
     <build>
