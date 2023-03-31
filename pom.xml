@@ -20,7 +20,7 @@
         <org.apache.httpcomponents>4.4.15</org.apache.httpcomponents>
         <org.assertj.version>3.22.0</org.assertj.version>
         <org.json.version>20220320</org.json.version>
-        <com.fasterxml.jackson>2.13.2.2</com.fasterxml.jackson>
+        <com.fasterxml.jackson>2.13.4.2</com.fasterxml.jackson>
     </properties>
 
     <build>
