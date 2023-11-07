@@ -19,7 +19,7 @@
         <junit.version>4.13.2</junit.version>
         <org.apache.httpcomponents>4.4.15</org.apache.httpcomponents>
         <org.assertj.version>3.24.2</org.assertj.version>
-        <org.json.version>20230227</org.json.version>
+        <org.json.version>20231013</org.json.version>
         <com.fasterxml.jackson>2.14.2</com.fasterxml.jackson>
     </properties>
 
