@@ -1,5 +1,5 @@
 # REST Automation tests
-Basic examples of API tests.
+Basic examples of webAPI (REST) tests.
 
 ## Services under test
 
@@ -11,23 +11,17 @@ Basic examples of API tests.
 Run any of these commands via CLI or use the `/.run` configurations in IntelliJ IDEA:
 
 ```maven
-mvn clean test
+mvn test
 ```
 ```maven
 mvn clean package
 ```
-```maven
-mvn -Dtest=com.herokuapp.restfulbooker.** test
-```
-```maven
-mvn --Dtest=com.typicode.jsonplaceholder.** test
-```
 
-## Built With
-- Java 8
+## Built With / Works with
+- Oracle Java 8 / OpenJDK 22
 - Maven - dependency management
 - REST Assured - Java domain-specific language for easy testing of REST services
-- JUnit - a unit test framework
+- JUnit 4 - a unit test framework
 - AssertJ Fluent Assertions
-- JSON In Java
+- JSON in Java
 - Jackson Databind
